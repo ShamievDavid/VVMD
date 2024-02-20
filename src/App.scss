@@ -1,0 +1,17 @@
+.app {
+  padding: 1rem;
+
+  &__components-list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__component {
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
