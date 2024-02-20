@@ -1,55 +1,64 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import gsap from 'gsap';
 import './Loader.scss';
+import { useGSAP } from '@gsap/react';
 
 export const Loader = () => {
   const countRef = useRef({ value: 0 });
 
-  useEffect(() => {
-    const tl = gsap.timeline();
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      duration: 0.5,
+    });
 
     const firstRandomNum = Math.floor(gsap.utils.random(0, 60));
     const secondRandomNum = Math.floor(gsap.utils.random(60, 92));
 
     tl.to(countRef.current, {
       value: firstRandomNum,
-      duration: 0.5,
       onUpdate: () => {
         setCount(Math.round(countRef.current.value));
       },
       ease: 'power1.out',
-    }).to('.loader__bar', {
-      width: `${firstRandomNum}%`,
-      duration: 0.5,
-    },'<');;
+    }).to(
+      '.loader__bar',
+      {
+        width: `${firstRandomNum}%`,
+      },
+      '<'
+    );
 
     tl.to(countRef.current, {
       value: secondRandomNum,
-      duration: 0.5,
       delay: 0.2,
       onUpdate: () => {
         setCount(Math.round(countRef.current.value));
       },
       ease: 'power1.out',
-    }).to('.loader__bar', {
-      width: `${secondRandomNum}%`,
-      duration: 0.5,
-      delay: 0.2,
-    },'<');;
+    }).to(
+      '.loader__bar',
+      {
+        width: `${secondRandomNum}%`,
+        delay: 0.2,
+      },
+      '<'
+    );
 
     tl.to(countRef.current, {
       value: 100,
-      duration: 0.5,
       delay: 0.1,
       onUpdate: () => {
         setCount(Math.round(countRef.current.value));
       },
       ease: 'power1.out',
-    }).to('.loader__bar', {
-      width: '100%',
-      duration: 0.5,
-      delay: 0.1,
-    }, '<');
+    }).to(
+      '.loader__bar',
+      {
+        width: '100%',
+        delay: 0.1,
+      },
+      '<'
+    );
   }, []);
 
   const setCount = (value) => {
@@ -59,7 +68,7 @@ export const Loader = () => {
   return (
     <div className="loader">
       <div className="loader__digits" />
-      <div className="loader__bar"></div>
+      <div className="loader__bar" />
     </div>
   );
 };
