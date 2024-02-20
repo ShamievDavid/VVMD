@@ -7,15 +7,9 @@ export const Loader = () => {
 
   useEffect(() => {
     const tl = gsap.timeline();
-    const tlBar = gsap.timeline();
 
     const firstRandomNum = Math.floor(gsap.utils.random(0, 60));
     const secondRandomNum = Math.floor(gsap.utils.random(60, 92));
-
-    tlBar.to('.loader__bar', {
-      width: `${firstRandomNum}%`,
-      duration: 0.5,
-    });
 
     tl.to(countRef.current, {
       value: firstRandomNum,
@@ -24,7 +18,10 @@ export const Loader = () => {
         setCount(Math.round(countRef.current.value));
       },
       ease: 'power1.out',
-    });
+    }).to('.loader__bar', {
+      width: `${firstRandomNum}%`,
+      duration: 0.5,
+    },'<');;
 
     tl.to(countRef.current, {
       value: secondRandomNum,
@@ -34,13 +31,11 @@ export const Loader = () => {
         setCount(Math.round(countRef.current.value));
       },
       ease: 'power1.out',
-    });
-
-    tlBar.to('.loader__bar', {
+    }).to('.loader__bar', {
       width: `${secondRandomNum}%`,
       duration: 0.5,
       delay: 0.2,
-    });
+    },'<');;
 
     tl.to(countRef.current, {
       value: 100,
@@ -50,13 +45,11 @@ export const Loader = () => {
         setCount(Math.round(countRef.current.value));
       },
       ease: 'power1.out',
-    });
-
-    tlBar.to('.loader__bar', {
+    }).to('.loader__bar', {
       width: '100%',
       duration: 0.5,
       delay: 0.1,
-    });
+    }, '<');
   }, []);
 
   const setCount = (value) => {
@@ -66,7 +59,7 @@ export const Loader = () => {
   return (
     <div className="loader">
       <div className="loader__digits" />
-      <div className="loader__bar">1</div>
+      <div className="loader__bar"></div>
     </div>
   );
 };
