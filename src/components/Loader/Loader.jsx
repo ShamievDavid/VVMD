@@ -9,6 +9,11 @@ export const Loader = () => {
   useGSAP(() => {
     const tl = gsap.timeline({
       duration: 0.5,
+      onComplete: () => {
+        gsap.set('.loader', {
+          display: 'none',
+        });
+      },
     });
 
     const firstRandomNum = Math.floor(gsap.utils.random(0, 60));

@@ -1,12 +1,11 @@
-import { Menu } from 'components';
+import { LoaderUser, Menu } from 'components';
 import './App.scss';
 import { Loader } from 'components/Loader/Loader';
-import {  useState } from 'react';
-
+import { useState } from 'react';
 
 const componentsMap = {
   menu: <Menu />,
-  loader: <Loader />,
+  loader: <LoaderUser />,
 };
 
 const App = () => {
