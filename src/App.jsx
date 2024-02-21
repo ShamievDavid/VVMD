@@ -1,6 +1,5 @@
 import { LoaderUser, Menu } from 'components';
 import './App.scss';
-import { Loader } from 'components/Loader/Loader';
 import { useState } from 'react';
 
 const componentsMap = {
