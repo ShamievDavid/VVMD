@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import './RemCalculator.scss';
+import classNames from 'classnames';
 
 export const RemCalculator = () => {
-  const [pixelValue, setPixelValue] = useState(null);
-  const [fullWidth, setFullWidth] = useState(null);
+  const [pixelValue, setPixelValue] = useState(0);
+  const [fullWidth, setFullWidth] = useState(0);
+
+  const handleChangeValue = (value) => {
+    setFullWidth(value);
+  };
 
   function calculatePercentage(width, pixelsCount) {
     const percentage = (pixelsCount / width) * 100;
@@ -21,34 +26,27 @@ export const RemCalculator = () => {
         <input onChange={(e) => setPixelValue(e.target.value)} />
       </label>
 
-      <label>
-        <input
-          type="radio"
-          name="1920"
-          value={1920}
-          onChange={(e) => setFullWidth(e.target.value)}
-        />
-        1920
-      </label>
+      <div className="calculator__values">
+        <div
+          className={classNames(fullWidth === 1920 && 'bold')}
+          onClick={() => handleChangeValue(1920)}
+        >
+          1920
+        </div>
 
-      <label>
-        <input
-          type="radio"
-          name="1080"
-          value={1080}
-          onChange={(e) => setFullWidth(e.target.value)}
-        />
-        1080
-      </label>
-
-      <div className="calculator__result">
-        {calculatePercentage(fullWidth, pixelValue)}
+        <div
+          onClick={() => handleChangeValue(1080)}
+          className={classNames(fullWidth === 1080 && 'bold')}
+        >
+          1080
+        </div>
       </div>
 
-      <label>
-        REM:
-        <div>{calculateRem(pixelValue)}</div>
-      </label>
+      <div className="calculator__result">
+        percentage: {calculatePercentage(fullWidth, pixelValue)} %
+      </div>
+
+      <div className="calculator__rem">REM: {calculateRem(pixelValue)}</div>
     </div>
   );
 };

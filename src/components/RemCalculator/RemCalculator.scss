@@ -2,6 +2,16 @@
   display: flex;
   flex-direction: column;
 
+  &__values {
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__rem {
+    margin-top: 2rem;
+  }
+
   label {
     margin-top: 2rem;
   }
@@ -13,4 +23,9 @@
   &__result {
     margin-top: 1rem;
   }
+}
+
+.bold {
+  color: blue;
+  font-weight: bold;
 }
