@@ -30,10 +30,4 @@ const App = () => {
   );
 };
 
-const Hey = () => (
-  <div style={{ backgroundColor: 'pink', position: 'absolute', top: '50%' }}>
-    hey blya
-  </div>
-);
-
 export default App;
