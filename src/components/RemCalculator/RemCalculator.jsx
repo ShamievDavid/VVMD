@@ -10,6 +10,10 @@ export const RemCalculator = () => {
     return percentage;
   }
 
+  function calculateRem(px) {
+    return px / 16;
+  }
+
   return (
     <div className="calculator">
       <label>
@@ -40,6 +44,11 @@ export const RemCalculator = () => {
       <div className="calculator__result">
         {calculatePercentage(fullWidth, pixelValue)}
       </div>
+
+      <label>
+        REM:
+        <div>{calculateRem(pixelValue)}</div>
+      </label>
     </div>
   );
 };
