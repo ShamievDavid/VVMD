@@ -1,10 +1,11 @@
-import { LoaderUser, Menu } from 'components';
+import React, { useState } from 'react';
+import { LoaderUser, Menu, RemCalculator } from 'components';
 import './App.scss';
-import { useState } from 'react';
 
 const componentsMap = {
   menu: <Menu />,
   loader: <LoaderUser />,
+  calculator: <RemCalculator />,
 };
 
 const App = () => {
@@ -28,5 +29,11 @@ const App = () => {
     </div>
   );
 };
+
+const Hey = () => (
+  <div style={{ backgroundColor: 'pink', position: 'absolute', top: '50%' }}>
+    hey blya
+  </div>
+);
 
 export default App;

@@ -1,0 +1,16 @@
+.calculator {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    margin-top: 2rem;
+  }
+
+  input {
+    margin-left: 1rem;
+  }
+
+  &__result {
+    margin-top: 1rem;
+  }
+}
