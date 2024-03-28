@@ -1,12 +1,18 @@
 @import '/src/styles/main.scss';
 
 .menu {
-  width: 100vw;
+  box-sizing: border-box;
+  width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
+  border: 2rem solid $main-font-color;
+
+  @include mobile {
+    height: 100dvh;
+  }
 
   &__letter {
     display: inline-block;
@@ -29,5 +35,15 @@
     text-decoration: none;
     color: #000;
     font-size: 2.5rem;
+  }
+
+  &__footer {
+    position: relative;
+    bottom: 0;
+    background-color: $main-font-color;
+    width: 100%;
+    color: #fff;
+    font-size: 3rem;
+    text-align: center;
   }
 }

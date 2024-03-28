@@ -59,6 +59,7 @@ export const Menu = () => {
           </a>
         </div>
       ))}
+      <footer className="menu__footer">footer</footer>
     </nav>
   );
 };

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { LoaderUser, Menu, RemCalculator } from 'components';
 import './App.scss';
 
+
 const componentsMap = {
   menu: <Menu />,
   loader: <LoaderUser />,
